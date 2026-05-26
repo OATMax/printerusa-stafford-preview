@@ -36,8 +36,8 @@ export default function Page() {
             <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
               Commercial DTF printers from {formatPrice(cheapestPrinter.price)} and hydraulic
               heat presses from {formatPrice(cheapestPress.price)} for Stafford, Houston, and
-              Fort Bend County print shops. Production-grade equipment with Epson i3200 printheads,
-              US-based installation support, and Texas-fast shipping.
+              Fort Bend County print shops. Production-grade equipment with Epson i3200 and i1600
+              printheads. Professional setup service available on most configurations.
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
@@ -205,8 +205,9 @@ export default function Page() {
             </h2>
             <p className="text-white/90 max-w-2xl leading-relaxed text-base">
               A new DTF rig with the wrong supplies produces failed prints. Order the equipment
-              and the matching starter-kit supplies together. White ink from {formatPrice(inkP.price)}.
-              Films, transfer powders, capping-station moisturizer, replacement parts.
+              and the matching starter-kit consumables together. White ink from {formatPrice(inkP.price)}.
+              A4 DTF paper, capping-station moisturizer, replacement parts. Free shipping on
+              orders over $500.
             </p>
           </div>
           <Link
@@ -228,10 +229,9 @@ export default function Page() {
             </h2>
             <p className="text-white/70 leading-relaxed">
               DTF Printer USA ships commercial DTF printers, heat presses, UV DTF equipment, and
-              embroidery machines directly to the Stafford and Houston metro. From the Beltway 8
-              industrial corridor to Sugar Land, Missouri City, Pearland, and the Highway 59 /
-              I-69 freight route between them, your new equipment ships with installation support
-              available on most configurations.
+              embroidery machines across the Houston metro. From Stafford and the Beltway 8
+              corridor to Sugar Land, Missouri City, Pearland, and Katy, the catalog ships
+              standard freight with professional setup service available on most configurations.
             </p>
           </div>
           <div className="bg-ink-800 border border-ink-700 rounded-xl p-6">
@@ -257,23 +257,23 @@ export default function Page() {
           <Faq items={[
             {
               q: "Where can I buy commercial DTF printers near Stafford, TX?",
-              a: "DTF Printer USA ships commercial DTF printers from 12-inch desktop to 24-inch industrial configurations directly to Stafford TX and the Houston metro. Installation support is available on most configurations, and the setup service covers calibration, RIP software, and initial print-testing.",
+              a: "DTF Printer USA ships commercial DTF printers from 12-inch desktop to 24-inch configurations across the Houston metro including Stafford. The professional setup service covers calibration, RIP software, and initial print-testing for buyers who want a technician to dial in the equipment.",
             },
             {
               q: "What size DTF printer do I need for my Stafford shop?",
-              a: "Sizing depends on your projected production volume. The 12-inch desktop platform fits home-based operations and variable-schedule shops. The 16.5-inch all-in-one removes the manual-powdering step for first-time DTF buyers. The 24-inch with 4 or 5 Epson i3200 printheads is the production workhorse for mid-tier shops scaling daily volume.",
+              a: "Sizing depends on projected production volume. The 12-inch desktop platform fits home-based operations and variable-schedule shops. The 16.5-inch all-in-one removes the manual-powdering step for first-time DTF buyers. The 24-inch with 4 or 5 Epson i3200 printheads is the production workhorse for mid-tier shops scaling daily volume.",
             },
             {
               q: "Do you offer financing for commercial DTF equipment?",
-              a: "Contact the DTF Printer USA team via the contact page for current financing options on commercial configurations. Setup service availability and lead times vary by configuration.",
+              a: "Contact the DTF Printer USA team via the contact page for current financing options on commercial configurations.",
             },
             {
               q: "What is the difference between hydraulic and clamshell heat presses?",
-              a: "Hydraulic presses deliver consistent pressure across the entire platen surface, which manual clamshells cannot match on larger formats. For full-back prints, hoodie pockets, and bulk-order sets, the hydraulic configuration is the right call. For small chest-print runs, a standard clamshell works.",
+              a: "Hydraulic presses deliver consistent pressure across the entire platen, which manual clamshells cannot match on larger formats. For full-back prints, hoodie pockets, and bulk-order sets, the hydraulic configuration is the right call. For small chest-print runs, a standard clamshell works.",
             },
             {
               q: "Do you ship to Sugar Land and Missouri City?",
-              a: "Yes. DTF Printer USA ships commercial equipment to Stafford, Sugar Land, Missouri City, Pearland, Richmond, Rosenberg, Bellaire, Meadows Place, Sienna, Katy, and the broader Houston metro. Standard freight applies to most configurations.",
+              a: "Yes. DTF Printer USA ships commercial equipment across the Houston metro including Stafford, Sugar Land, Missouri City, Pearland, Richmond, Rosenberg, Bellaire, Meadows Place, Sienna, and Katy. Standard freight applies to most configurations.",
             },
           ]} />
         </div>
@@ -287,7 +287,7 @@ export default function Page() {
           </h2>
           <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed mb-7">
             Commercial DTF printers. Hydraulic heat presses. UV DTF equipment. Embroidery
-            machines. Shipped from Texas with US-based installation support.
+            machines. Professional setup service available. Free shipping on orders $500+.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a

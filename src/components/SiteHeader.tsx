@@ -7,11 +7,11 @@ export default function SiteHeader({ ctaLabel = "Shop Supplies", ctaHref = "http
     <>
       <div className="bg-accent-red text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider py-2">
         <div className="max-w-container mx-auto px-6 flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
-          <span>Free Shipping on US Orders $500+</span>
+          <span>Up to 55% Off DTF Supplies</span>
           <span className="opacity-50">·</span>
-          <span>Same-Day Texas Dispatch</span>
+          <span>Free Shipping on Orders $500+</span>
           <span className="opacity-50">·</span>
-          <span>Production-Ready Equipment</span>
+          <span>Professional Setup Service Available</span>
         </div>
       </div>
 

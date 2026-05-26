@@ -11,7 +11,7 @@ export default function SiteFooter() {
           />
           <p className="text-white/60 leading-relaxed">
             Commercial DTF printers, heat presses, supplies, and embroidery machines.
-            Texas fulfillment, US-based support, same-day dispatch.
+            Professional setup service available on most configurations.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export default function SiteFooter() {
       <div className="border-t border-ink-700">
         <div className="max-w-container mx-auto px-6 py-3 text-xs text-white/40 flex flex-wrap items-center justify-between gap-2">
           <span>© DTF Printer USA. All rights reserved.</span>
-          <span>Ships from Texas · Free shipping $500+</span>
+          <span>Free shipping on orders $500+</span>
         </div>
       </div>
     </footer>

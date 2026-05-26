@@ -37,10 +37,9 @@ export default function Page() {
               DTF Supplies <span className="accent-yellow">Near You</span> in <span className="accent-orange">Stafford, TX</span>
             </h1>
             <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
-              Premium DTF inks, transfer films, and adhesive powder for Stafford print shops,
-              Houston-area decorators, and Fort Bend County t-shirt businesses. Epson i3200
-              and i1600 compatible. Shipped fast from US warehouses so your production never
-              waits on out-of-state suppliers.
+              DTF inks, transfer films, adhesive powder, and maintenance supplies for Stafford
+              print shops, Houston-area decorators, and Fort Bend County t-shirt businesses.
+              Epson i3200 and i1600 printhead compatible. Free shipping on orders $500+.
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
@@ -154,10 +153,10 @@ export default function Page() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <Feature title="Ships From US Warehouses" body="Inks, films, and powders ship on standard freight. Most Stafford 77477 / 77497 orders arrive within one to three business days." />
-            <Feature title="Epson i3200 + i1600 Spec" body="Ink chemistry is calibrated for the i3200 and i1600 printhead platforms most commercial DTF shops actually run." />
-            <Feature title="Real Production Volume" body="The same consumables Houston metro mid-tier shops burn through on daily production runs. Not hobbyist quantities." />
-            <Feature title="Texas-Local Fulfillment" body="No waiting on out-of-state suppliers when your press is down. Stock the buffer and the buffer ships fast." />
+            <Feature title="Free Shipping Over $500" body="Standard freight is free on supply and equipment orders over $500. Confirmed in our shipping policy." />
+            <Feature title="Epson i3200 + i1600 Spec" body="Ink chemistry calibrated for the i3200 and i1600 printhead platforms most commercial DTF shops run." />
+            <Feature title="Up to 55% Off Supplies" body="Recurring promotional pricing on the DTF supplies catalog. Stock the buffer before your production stops." />
+            <Feature title="Professional Setup Available" body="The DTF printer setup service covers calibration, RIP software configuration, and initial print-testing." />
           </div>
         </div>
       </section>
@@ -173,8 +172,8 @@ export default function Page() {
             <p className="text-white/90 max-w-2xl leading-relaxed text-base">
               Commercial DTF printers from {formatPrice(cheapestPrinter.price)}. Hydraulic heat
               presses from {formatPrice(cheapestPress.price)}. Production-grade equipment with the
-              same fast Texas shipping as our supplies. Whether you are starting a new Stafford
-              print shop or scaling a Houston-area apparel brand, we have the gear.
+              option of professional setup service. Whether you are starting a new Stafford print
+              shop or scaling a Houston-area apparel brand, we have the gear.
             </p>
           </div>
           <Link
@@ -219,11 +218,10 @@ export default function Page() {
               From <span className="accent-yellow">Beltway 8</span> to Sugar Land, We Ship.
             </h2>
             <p className="text-white/70 leading-relaxed">
-              DTF Printer USA ships DTF inks, films, powders, and cleaning supplies to Stafford
-              and the entire Houston metro. From the Beltway 8 industrial corridor to Sugar Land,
-              Missouri City, Pearland, and the Highway 59 / I-69 freight route between them, your
-              Stafford print shop, t-shirt brand, or apparel decorator gets fast US fulfillment
-              without sourcing overseas.
+              DTF Printer USA ships DTF inks, films, powders, and cleaning supplies across the
+              Houston metro. From Stafford and the Beltway 8 corridor to Sugar Land, Missouri City,
+              Pearland, and Katy, your print shop, t-shirt brand, or apparel decorator orders
+              from the standard catalog and gets free shipping on orders over $500.
             </p>
           </div>
           <div className="bg-ink-800 border border-ink-700 rounded-xl p-6">
@@ -249,23 +247,23 @@ export default function Page() {
           <Faq items={[
             {
               q: "Where can I buy DTF supplies near Stafford, TX?",
-              a: "DTF Printer USA ships DTF inks, transfer films, adhesive powder, and cleaning supplies to Stafford and the entire Houston metro from US warehouses. Most Stafford 77477 and 77497 addresses receive orders within one to three business days on standard freight.",
+              a: "DTF Printer USA ships DTF inks, transfer films, adhesive powder, and cleaning supplies across the Houston metro including Stafford. Place an order through the standard catalog and shipping happens on the regular schedule posted in the shipping policy.",
             },
             {
               q: "What DTF supplies do you carry?",
-              a: "The full range of working-shop consumables: DTF white ink and CMYK ink in 1-liter bottles, A4 DTF paper for sample runs, DTF transfer powders across grain sizes, capping-station moisturizing liquid, replacement ink pumps, and the broader supplies sale catalog for parts and accessories.",
+              a: "The working-shop consumables in the catalog: DTF white ink in 1-liter bottles, A4 DTF paper, DTF moisturizing liquid for capping-station maintenance, replacement ink pumps, and the broader DTF printing supplies sale collection for accessories and replacement parts.",
             },
             {
               q: "Are your inks compatible with my Epson i3200 or i1600 printer?",
-              a: "Yes. DTF Printer USA ink chemistry is calibrated for both the Epson i3200 and i1600 printhead platforms. These are the same printheads most commercial DTF shops in the Houston metro run, so the ink set fits the equipment without recalibration.",
-            },
-            {
-              q: "How fast can I get DTF supplies to Stafford?",
-              a: "Standard freight to Stafford 77477 and 77497 typically arrives within one to three business days from order. For shops in immediate need of a replenishment, contact the DTF Printer USA team for expedited shipping options.",
+              a: "Yes. The DTF white ink and the broader DTF inks collection are formulated for the Epson i3200 and i1600 printhead platforms. Refer to each product page for the specific compatibility note.",
             },
             {
               q: "Do you offer free shipping?",
-              a: "Free shipping kicks in on orders over $500 across the supplies catalog. The exact threshold is posted in each product listing.",
+              a: "Yes. Free shipping is available on orders over $500 per the published shipping policy. The exact threshold is also posted in each product listing.",
+            },
+            {
+              q: "Do you offer installation or setup support?",
+              a: "Yes. The DTF printer setup service covers professional installation, calibration, RIP software configuration, and initial print-testing for buyers who want their new equipment dialed in by a technician rather than self-installing.",
             },
           ]} />
         </div>
@@ -278,8 +276,8 @@ export default function Page() {
             Stock Your <span className="accent-yellow">Stafford Shop</span> with DTF Supplies Today.
           </h2>
           <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed mb-7">
-            DTF white ink and CMYK. A4 DTF paper. Transfer powder. Capping-station maintenance.
-            Order today and ship from Texas. Free shipping on orders $500+.
+            DTF white ink. A4 DTF paper. Capping-station moisturizer. Replacement ink pumps.
+            Order through the standard catalog. Free shipping on orders $500+.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
