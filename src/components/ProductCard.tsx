@@ -1,47 +1,64 @@
-import { PRODUCTS } from "@/products";
+import { PRODUCTS, ProductSlug, formatPrice } from "@/products";
 
-type ProductSlug = keyof typeof PRODUCTS;
-
-// Mirrors the real DTF Printer USA product card pattern: square image,
-// title below, "View" CTA, hover state.
+// Reference-style product card: dark surface, image up top with optional badge,
+// title, big price, optional sale strike, big red "Order" CTA at the bottom.
 export default function ProductCard({
   slug,
   badge,
+  cta = "Order Now",
+  blurb,
 }: {
   slug: ProductSlug;
   badge?: string;
+  cta?: string;
+  blurb?: string;
 }) {
   const product = PRODUCTS[slug];
   if (!product) return null;
   const href = `https://dtfprinterusa.com/products/${slug}`;
+  const onSale = product.compareAt && product.compareAt > product.price;
+  const pct = onSale
+    ? Math.round(((product.compareAt! - product.price) / product.compareAt!) * 100)
+    : null;
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group block bg-white border border-surface-border rounded-lg overflow-hidden hover:shadow-lg hover:border-navy/40 transition no-underline"
+      className="group flex flex-col bg-ink-800 border border-ink-700 rounded-xl overflow-hidden hover:border-accent-red/70 hover:shadow-2xl hover:shadow-accent-red/10 transition no-underline"
     >
-      <div className="relative aspect-square bg-surface-alt overflow-hidden">
+      <div className="relative aspect-square bg-white overflow-hidden">
         {badge && (
-          <div className="absolute top-3 left-3 z-10 bg-accent-red text-white text-xs font-bold uppercase tracking-wider px-2 py-1 rounded">
-            {badge}
+          <div className="absolute top-3 left-3 z-10 bg-accent-yellow text-ink-900 text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+            ★ {badge}
+          </div>
+        )}
+        {pct !== null && (
+          <div className="absolute top-3 right-3 z-10 bg-accent-red text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+            -{pct}%
           </div>
         )}
         <img
           src={product.image}
           alt={product.title}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+          className="absolute inset-0 w-full h-full object-contain p-5 transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <div className="p-4">
-        <div className="text-sm font-semibold text-body line-clamp-2 min-h-[2.6em] group-hover:text-navy transition">
+      <div className="flex flex-col flex-1 p-4 gap-2">
+        <div className="text-[15px] font-extrabold text-white leading-tight line-clamp-2 min-h-[2.6em]">
           {product.title}
         </div>
-        <div className="mt-3 text-xs font-bold uppercase tracking-wider text-navy flex items-center gap-1 group-hover:gap-2 transition-all">
-          View product
-          <span aria-hidden>→</span>
+        {blurb && <div className="text-xs text-white/55 leading-snug line-clamp-3">{blurb}</div>}
+        <div className="flex items-baseline gap-2 mt-1">
+          <span className="text-accent-yellow text-xl font-extrabold">{formatPrice(product.price)}</span>
+          {onSale && (
+            <span className="text-white/40 text-sm line-through">{formatPrice(product.compareAt!)}</span>
+          )}
+        </div>
+        <div className="mt-2 inline-flex items-center justify-center gap-1.5 bg-accent-red group-hover:bg-accent-redHover text-white text-xs font-extrabold uppercase tracking-wider px-4 py-2.5 rounded transition">
+          {cta} <span aria-hidden>→</span>
         </div>
       </div>
     </a>

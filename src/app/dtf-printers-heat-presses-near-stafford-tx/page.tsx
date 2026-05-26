@@ -1,221 +1,323 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import ProductCard from "@/components/ProductCard";
+import Faq from "@/components/Faq";
+import { PRODUCTS, formatPrice } from "@/products";
 
 export const metadata: Metadata = {
-  title: "DTF Printers + Heat Presses Near Stafford, TX | Commercial Equipment | DTF Printer USA",
-  description: "DTF printers and heat presses for Stafford and Houston-area print shops. 12-inch to 24-inch DTF printers and large-format hydraulic heat presses. Installation support available.",
+  title: "DTF Printers & Heat Presses Near You in Stafford, TX | Commercial Equipment | DTF Printer USA",
+  description: "Commercial DTF printers, hydraulic heat presses, UV DTF, embroidery, and sublimation equipment for Stafford TX and the Houston metro. Production-grade machines with US-based support.",
 };
 
-const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a href={href} target="_blank" rel="noreferrer" className="text-navy font-semibold underline decoration-navy/30 hover:decoration-navy">{children}</a>
-);
+const heroPrinter = PRODUCTS["24-inch-dtf-printer-4-epson-i3200-printheads"];
+const cheapestPrinter = PRODUCTS["12-inch-dtf-printer-dual-epson-i1600-printheads"];
+const cheapestPress = PRODUCTS["24x32-hydraulic-heat-press-machine-large-format"];
+const setupSvc = PRODUCTS["dtf-printer-set-up-service"];
+const inkP = PRODUCTS["dtf-white-ink-1-liter"];
 
 export default function Page() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy text-white">
-        <div className="max-w-container mx-auto px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <SiteHeader ctaLabel="Shop Equipment" ctaHref="https://dtfprinterusa.com/collections/dtf-printer" />
+
+      {/* HERO */}
+      <section className="bg-ink-900 border-b border-ink-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-ink-900 via-ink-900 to-ink-800 opacity-80" aria-hidden />
+        <div className="max-w-container mx-auto px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center relative">
           <div>
-            <div className="text-xs uppercase tracking-widest text-accent-orange font-bold mb-3">
-              Stafford TX · Fort Bend County · Houston Metro
+            <div className="text-xs uppercase tracking-[0.2em] accent-yellow font-extrabold mb-4 flex items-center gap-2">
+              ★ Stafford, TX <span className="text-white/30">·</span> Houston Metro Print Equipment
             </div>
-            <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-4">
-              DTF Printers + Heat Presses Near Stafford, TX
+            <h1 className="text-4xl sm:text-6xl font-extrabold leading-[1.02] mb-6 text-white">
+              DTF Printers & Heat Presses <span className="accent-yellow">Near You</span> in <span className="accent-orange">Stafford, TX</span>
             </h1>
-            <p className="text-white/85 text-lg leading-relaxed mb-6 max-w-xl">
-              Commercial DTF printers, large-format hydraulic heat presses, UV DTF equipment, and
-              embroidery machines for Stafford-area shops and the broader Houston metro. Installation
-              support available on every commercial configuration.
+            <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
+              Commercial DTF printers from {formatPrice(cheapestPrinter.price)} and hydraulic
+              heat presses from {formatPrice(cheapestPress.price)} for Stafford, Houston, and
+              Fort Bend County print shops. Production-grade equipment with Epson i3200 printheads,
+              US-based installation support, and Texas-fast shipping.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-10">
               <a
                 href="https://dtfprinterusa.com/collections/dtf-printer"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-accent-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded transition"
+                className="inline-flex items-center gap-2 bg-accent-red hover:bg-accent-redHover text-white font-extrabold uppercase tracking-wider text-sm px-7 py-4 rounded transition"
               >
-                Browse DTF Printers
-                <span aria-hidden>→</span>
+                Shop DTF Printers <span aria-hidden>→</span>
               </a>
-              <Link
-                href="/dtf-supplies-near-stafford-tx"
-                className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-white text-white font-bold px-6 py-3 rounded transition no-underline"
+              <a
+                href="https://dtfprinterusa.com/collections/heat-presses"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-white text-white font-extrabold uppercase tracking-wider text-sm px-7 py-4 rounded transition no-underline"
               >
-                Need Supplies Instead?
-              </Link>
+                Shop All Presses
+              </a>
+            </div>
+            <div className="grid grid-cols-3 gap-3 max-w-md">
+              <Stat value={formatPrice(cheapestPrinter.price)} label="Printer Starting" />
+              <Stat value={formatPrice(cheapestPress.price)} label="Heat Press Starting" />
+              <Stat value={formatPrice(setupSvc.price)} label="Setup Service" />
             </div>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <img
-              src="https://dtfprinterusa.com/cdn/shop/files/DTF_Printer_1.png?v=1766530913"
-              alt="24-inch DTF printer"
-              className="rounded-xl shadow-2xl w-full max-w-md object-contain aspect-square bg-white p-4"
-            />
+          <div className="relative">
+            <div className="absolute -top-3 -right-3 z-10 bg-accent-yellow text-ink-900 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-xl">★ Most Popular</div>
+            <div className="bg-white rounded-2xl shadow-2xl shadow-black/40 p-6">
+              <img
+                src={heroPrinter.image}
+                alt={heroPrinter.title}
+                className="w-full h-auto rounded"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <article className="max-w-container mx-auto px-6 py-14 grid lg:grid-cols-[1fr_300px] gap-10">
-        <div className="prose prose-lg max-w-none prose-headings:text-navy prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h3:text-xl prose-h3:font-semibold prose-a:text-navy prose-a:font-semibold prose-p:text-body">
-          <p>
-            DTF Printer USA equips print shops, custom-apparel operators, and small-business buyers
-            across Stafford, Sugar Land, Missouri City, Pearland, and the broader Houston metro with
-            the commercial DTF printers, heat presses, UV DTF equipment, and embroidery machines that
-            drive a working production floor. From a 12-inch desktop entry rig to a 24-inch commercial
-            configuration with four or five Epson i3200 printheads, the high-ticket catalog covers
-            every operational scale.
-          </p>
-          <p>
-            For the supplies side (inks, films, powder, accessories, replacement parts), see the{" "}
-            <Link href="/dtf-supplies-near-stafford-tx">DTF supplies near Stafford</Link> landing.
-          </p>
-
-          <h2>24-Inch Commercial DTF Printers</h2>
-          <p>
-            The 24-inch DTF printer is the production workhorse of the catalog. Multi-printhead
-            configurations driven by Epson i3200 print heads handle the high-volume daily runs that
-            mid-tier and growing print shops in the Houston metro need to stay ahead of order
-            pipelines.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5 my-6 not-prose">
-            <ProductCard slug="24-inch-dtf-printer-4-epson-i3200-printheads" badge="Workhorse" />
-            <ProductCard slug="24-inch-dtf-printer-5-epson-i3200-printheads" badge="High Volume" />
-          </div>
-
-          <h2>12-Inch and 16.5-Inch DTF Printers</h2>
-          <p>
-            For shops with desktop space constraints or operators building a first DTF rig before
-            scaling, the 12-inch and 16.5-inch platforms cover the entry to mid-range tier.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5 my-6 not-prose">
-            <ProductCard slug="12-inch-dtf-printer-dual-epson-i1600-printheads" />
-            <ProductCard slug="16-5-inch-all-one-dtf-printer-powder-shaker" badge="All-In-One" />
-          </div>
-          <p>
-            The 16.5-inch all-in-one is a strong fit for Stafford-area buyers transitioning from
-            heat-transfer-vinyl or sublimation workflows to DTF for the first time, because the
-            integrated powder shaker simplifies the operational learning curve.
-          </p>
-
-          <h2>Hydraulic Heat Presses for Large-Format Production</h2>
-          <p>
-            For shops pressing larger-format DTF transfers (12x16 full-front prints, oversized
-            graphics, and apparel laid flat on bigger platen surfaces), the hydraulic heat press is
-            the right call over a clamshell or swing-away. Hydraulic presses deliver consistent
-            pressure across the entire platen, which the manual presses cannot match on larger surface
-            areas.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5 my-6 not-prose">
-            <ProductCard slug="24x32-hydraulic-heat-press-machine-large-format" badge="Large Format" />
-            <ProductCard slug="20x24-hydraulic-heat-press-6-platens-industrial-use" badge="6 Platens" />
-          </div>
-          <p>
-            Browse the full <A href="https://dtfprinterusa.com/collections/heat-presses">heat presses collection</A>{" "}
-            for additional configurations across platen size and press mechanism.
-          </p>
-
-          <h2>UV DTF Printers for Hard-Surface Specialty Work</h2>
-          <p>
-            For shops expanding into hard-surface custom work (mugs, tumblers, phone cases, branded
-            merchandise), the UV DTF platform opens applications the standard DTF transfer cannot
-            serve.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5 my-6 not-prose">
-            <ProductCard slug="40x30cm-uv-flatbed-printer-dual-epson-i1600-printheads" />
-            <ProductCard slug="60x90cm-uv-flatbed-printer-3-epson-i3200-printheads" badge="Large Bed" />
-            <ProductCard slug="uv-cylindrical-printer-4-ricoh-gh220-printheads-bottles-tubes" badge="Cylindrical" />
-            <ProductCard slug="12-inch-uv-embossing-printer-epson-dx7-printhead-embroidery-effect" badge="Embossing" />
-          </div>
-          <p>
-            For Stafford-area shops adding hard-surface custom merchandise to a primarily
-            apparel-focused business, the UV DTF platform is the equipment investment that opens the
-            new revenue line.
-          </p>
-
-          <h2>Embroidery Machines for Multi-Method Shops</h2>
-          <p>
-            For shops running embroidery alongside DTF (a common mid-tier production setup), DTF
-            Printer USA carries commercial embroidery configurations:
-          </p>
-          <div className="grid sm:grid-cols-3 gap-5 my-6 not-prose">
-            <ProductCard slug="single-head-15-needle-embroidery-machine-cap-support" />
-            <ProductCard slug="4-head-15-needle-commercial-embroidery-machine" />
-            <ProductCard slug="6-head-15-needle-industrial-embroidery-machine" badge="Industrial" />
-          </div>
-          <p>
-            Browse the full <A href="https://dtfprinterusa.com/collections/embroidery-machines">embroidery machines collection</A>{" "}
-            for additional configurations.
-          </p>
-
-          <h2>Sublimation Printers for Polyester-Specialty Shops</h2>
-          <p>
-            For shops with significant polyester garment volume, sublimation often complements DTF as
-            the right method for full-polyester production runs.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5 my-6 not-prose">
-            <ProductCard slug="75-inch-sublimation-printer-4-epson-i3200-printheads" badge="Wide Format" />
-          </div>
-
-          <h2>DTF Printer Setup Service for Stafford Buyers</h2>
-          <p>
-            For Stafford and Houston-area buyers committing to a new commercial DTF rig, professional
-            installation cuts the time-to-first-production from weeks to days. The setup service covers
-            calibration, RIP software configuration, and initial print-testing on your installed unit.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-5 my-6 not-prose">
-            <ProductCard slug="dtf-printer-set-up-service" badge="Recommended" />
-          </div>
-          <p>
-            For shops without an in-house technician, the setup service is the operational decision
-            that prevents the most common new-equipment failure pattern: a perfectly good printer that
-            takes weeks to dial in because the initial setup was rushed.
-          </p>
-
-          <h2>Need DTF Supplies for Your New Press?</h2>
-          <p>
-            Every DTF printer and heat press in the catalog above consumes the supplies covered on the{" "}
-            <Link href="/dtf-supplies-near-stafford-tx">DTF supplies near Stafford</Link> landing. For
-            new buyers committing to a fresh production setup, plan the starting supplies kit alongside
-            the equipment order. A new DTF rig with the wrong supply selection produces failed prints.
-            Order the equipment and the matching starter-kit supplies together, and the new shop hits
-            production-ready status in the first week instead of the fourth.
-          </p>
-
-          <h2>Buying Equipment in Stafford and the Houston Metro</h2>
-          <p>
-            For commercial-tier equipment buyers, the operational questions matter as much as the
-            price points. Throughput, maintenance cycles, supply compatibility, and operator training
-            are all part of the buying decision. The DTF Printer USA team is available via the{" "}
-            <A href="https://dtfprinterusa.com/pages/contact-us">contact page</A>{" "}
-            for direct conversation on specific configurations before order placement.
-          </p>
-        </div>
-
-        {/* Sidebar */}
-        <aside className="lg:sticky lg:top-6 lg:self-start space-y-6">
-          <div className="bg-navy text-white rounded-lg p-5">
-            <div className="text-xs uppercase tracking-widest text-accent-orange font-bold mb-2">Companion Page</div>
-            <Link href="/dtf-supplies-near-stafford-tx" className="text-white font-bold text-lg hover:no-underline">
-              ← DTF Supplies Near Stafford
-            </Link>
-            <p className="text-white/80 text-sm mt-2">
-              The recurring consumables side: inks, films, powder, replacement parts.
+      {/* COMMERCIAL DTF PRINTERS */}
+      <section className="border-b border-ink-700">
+        <div className="max-w-container mx-auto px-6 py-16">
+          <div className="max-w-2xl mb-10">
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ Commercial DTF Printers</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-3">
+              Production-Grade <span className="accent-yellow">DTF Printers</span> for Stafford Shops.
+            </h2>
+            <p className="text-white/65 text-base leading-relaxed">
+              From 12-inch desktop platforms to 24-inch four and five-printhead commercial rigs.
+              Every machine ships with Epson i3200 or i1600 printheads and DTF Printer USA setup
+              support available.
             </p>
           </div>
-          <div className="bg-white border border-surface-border rounded-lg p-5">
-            <div className="text-xs uppercase tracking-widest text-navy font-bold mb-2">Equipment Categories</div>
-            <ul className="space-y-2 text-sm">
-              <li><a href="https://dtfprinterusa.com/collections/dtf-printer" target="_blank" rel="noreferrer">DTF Printers</a></li>
-              <li><a href="https://dtfprinterusa.com/collections/heat-presses" target="_blank" rel="noreferrer">Heat Presses</a></li>
-              <li><a href="https://dtfprinterusa.com/collections/embroidery-machines" target="_blank" rel="noreferrer">Embroidery</a></li>
-              <li><a href="https://dtfprinterusa.com/products/dtf-printer-set-up-service" target="_blank" rel="noreferrer">Setup Service</a></li>
-              <li><a href="https://dtfprinterusa.com/pages/contact-us" target="_blank" rel="noreferrer">Contact Sales</a></li>
-            </ul>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ProductCard slug="12-inch-dtf-printer-dual-epson-i1600-printheads" badge="Entry Level" cta="Order Printer" blurb="Desktop-class 12-inch DTF with dual i1600 printheads. Home-based shops and variable-schedule operators." />
+            <ProductCard slug="16-5-inch-all-one-dtf-printer-powder-shaker" badge="All-in-One" cta="Order Printer" blurb="16.5-inch integrated printer + powder shaker. No separate powdering station. Easiest first DTF rig." />
+            <ProductCard slug="24-inch-dtf-printer-4-epson-i3200-printheads" badge="Workhorse" cta="Order Printer" blurb="24-inch commercial DTF with 4 Epson i3200 printheads. The production workhorse for mid-tier shops." />
+            <ProductCard slug="24-inch-dtf-printer-5-epson-i3200-printheads" badge="High Volume" cta="Order Printer" blurb="24-inch with 5 i3200 printheads. Higher-throughput configuration for upper-end small-business volume." />
           </div>
-        </aside>
-      </article>
+        </div>
+      </section>
+
+      {/* HEAT PRESSES */}
+      <section className="border-b border-ink-700 bg-ink-950">
+        <div className="max-w-container mx-auto px-6 py-16">
+          <div className="max-w-2xl mb-10">
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ Hydraulic Heat Presses</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-3">
+              Hydraulic <span className="accent-yellow">Heat Presses</span> for Large-Format Production.
+            </h2>
+            <p className="text-white/65 text-base leading-relaxed">
+              Consistent pressure across the entire platen, which manual clamshells cannot match
+              on larger surface areas. Built for full-back prints, hoodie kangaroo pockets, and
+              bulk-order bar uniform production.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <ProductCard slug="24x32-hydraulic-heat-press-machine-large-format" badge="Large Format" cta="Order Press" blurb="24×32 hydraulic heat press. Largest platen in the catalog, full-back prints, hoodie pockets, bulk-order shirt sets." />
+            <ProductCard slug="20x24-hydraulic-heat-press-6-platens-industrial-use" badge="6 Platens" cta="Order Press" blurb="20×24 with six platens for parallel pressing. The right machine for shops running high-volume order cycles." />
+          </div>
+        </div>
+      </section>
+
+      {/* UV DTF */}
+      <section className="border-b border-ink-700">
+        <div className="max-w-container mx-auto px-6 py-16">
+          <div className="max-w-2xl mb-10">
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ UV DTF Equipment</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-3">
+              UV DTF <span className="accent-yellow">Hard-Surface</span> Printers.
+            </h2>
+            <p className="text-white/65 text-base leading-relaxed">
+              For shops expanding into mugs, tumblers, phone cases, and branded merchandise. UV
+              DTF opens applications standard DTF cannot serve.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ProductCard slug="40x30cm-uv-flatbed-printer-dual-epson-i1600-printheads" cta="Order Printer" blurb="40×30 cm UV flatbed with dual i1600 printheads. Entry to mid-tier UV flatbed for hard-surface applications." />
+            <ProductCard slug="60x90cm-uv-flatbed-printer-3-epson-i3200-printheads" badge="Large Bed" cta="Order Printer" blurb="60×90 cm UV flatbed with 3 i3200 printheads. Larger format for bulk hard-surface production." />
+            <ProductCard slug="uv-cylindrical-printer-4-ricoh-gh220-printheads-bottles-tubes" badge="Cylindrical" cta="Order Printer" blurb="UV cylindrical printer with 4 Ricoh GH220 printheads. Bottles, tumblers, and cylindrical-surface printing." />
+            <ProductCard slug="12-inch-uv-embossing-printer-epson-dx7-printhead-embroidery-effect" badge="Embossing" cta="Order Printer" blurb="12-inch UV embossing for textured-finish output that mimics embroidery without the stitch time." />
+          </div>
+        </div>
+      </section>
+
+      {/* EMBROIDERY + SUBLIMATION */}
+      <section className="border-b border-ink-700 bg-ink-950">
+        <div className="max-w-container mx-auto px-6 py-16">
+          <div className="max-w-2xl mb-10">
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ Embroidery + Sublimation</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-3">
+              Multi-Method <span className="accent-yellow">Shop Equipment</span>.
+            </h2>
+            <p className="text-white/65 text-base leading-relaxed">
+              For mid-tier shops running embroidery and sublimation alongside DTF, the commercial
+              configurations below complement the DTF lineup.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ProductCard slug="single-head-15-needle-embroidery-machine-cap-support" cta="Order Machine" blurb="Single-head 15-needle commercial embroidery with cap support. Entry-level commercial embroidery." />
+            <ProductCard slug="4-head-15-needle-commercial-embroidery-machine" cta="Order Machine" blurb="4-head 15-needle commercial embroidery. Multi-head parallel production for growing shops." />
+            <ProductCard slug="6-head-15-needle-industrial-embroidery-machine" badge="Industrial" cta="Order Machine" blurb="6-head 15-needle industrial embroidery. High-volume configuration for production-floor scale." />
+            <ProductCard slug="75-inch-sublimation-printer-4-epson-i3200-printheads" badge="Wide Format" cta="Order Printer" blurb="75-inch sublimation with 4 i3200 printheads. Wide-format sublimation for fabric-roll runs and full garments." />
+          </div>
+        </div>
+      </section>
+
+      {/* SETUP SERVICE CALLOUT */}
+      <section className="border-b border-ink-700">
+        <div className="max-w-container mx-auto px-6 py-16 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ Setup Service for Stafford Buyers</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-3">
+              Skip the <span className="accent-yellow">Calibration Headache</span>.
+            </h2>
+            <p className="text-white/70 leading-relaxed text-base max-w-2xl">
+              For Stafford and Houston-area buyers committing to a new commercial DTF rig,
+              professional installation cuts time-to-first-production from weeks to days. Setup
+              service covers calibration, RIP software configuration, and initial print-testing
+              on your installed unit.
+            </p>
+          </div>
+          <a
+            href={`https://dtfprinterusa.com/products/dtf-printer-set-up-service`}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-ink-800 border border-ink-700 hover:border-accent-red rounded-xl p-5 flex flex-col gap-1.5 no-underline transition group min-w-[260px]"
+          >
+            <div className="text-[10px] uppercase tracking-wider accent-yellow font-extrabold">★ Recommended</div>
+            <div className="text-white font-extrabold text-base">DTF Printer Set-Up Service</div>
+            <div className="text-accent-yellow text-2xl font-extrabold">{formatPrice(setupSvc.price)}</div>
+            <div className="mt-2 inline-flex items-center justify-center gap-1.5 bg-accent-red group-hover:bg-accent-redHover text-white text-xs font-extrabold uppercase tracking-wider px-4 py-2.5 rounded transition">
+              Add Setup <span aria-hidden>→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* CROSSLINK TO SUPPLIES (RED) */}
+      <section className="bg-accent-red text-white">
+        <div className="max-w-container mx-auto px-6 py-14 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] font-extrabold mb-3 opacity-80">★ Don't Forget the Consumables</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-3">
+              DTF Supplies for Your New Stafford Press
+            </h2>
+            <p className="text-white/90 max-w-2xl leading-relaxed text-base">
+              A new DTF rig with the wrong supplies produces failed prints. Order the equipment
+              and the matching starter-kit supplies together. White ink from {formatPrice(inkP.price)}.
+              Films, transfer powders, capping-station moisturizer, replacement parts.
+            </p>
+          </div>
+          <Link
+            href="/dtf-supplies-near-stafford-tx"
+            className="inline-flex items-center gap-2 bg-white text-accent-red font-extrabold uppercase tracking-wider text-sm px-7 py-4 rounded hover:bg-white/90 transition no-underline whitespace-nowrap"
+          >
+            Shop Stafford Supplies <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* AREA SERVED */}
+      <section className="border-b border-ink-700">
+        <div className="max-w-container mx-auto px-6 py-16 grid lg:grid-cols-[1.2fr_1fr] gap-10">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ Serving Stafford & Greater Houston</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-4">
+              Commercial Equipment Direct to <span className="accent-yellow">Your Shop Floor</span>.
+            </h2>
+            <p className="text-white/70 leading-relaxed">
+              DTF Printer USA ships commercial DTF printers, heat presses, UV DTF equipment, and
+              embroidery machines directly to the Stafford and Houston metro. From the Beltway 8
+              industrial corridor to Sugar Land, Missouri City, Pearland, and the Highway 59 /
+              I-69 freight route between them, your new equipment ships with installation support
+              available on most configurations.
+            </p>
+          </div>
+          <div className="bg-ink-800 border border-ink-700 rounded-xl p-6">
+            <div className="text-xs uppercase tracking-wider accent-yellow font-extrabold mb-4">Cities We Equip</div>
+            <div className="grid grid-cols-2 gap-2 text-sm text-white/80">
+              {["Stafford 77477", "Stafford 77497", "Sugar Land", "Missouri City", "Houston", "Pearland", "Richmond", "Rosenberg", "Bellaire", "Meadows Place", "Sienna", "Katy"].map((c) => (
+                <div key={c} className="flex items-center gap-2"><span className="text-accent-red">✓</span> {c}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-ink-700 bg-ink-950">
+        <div className="max-w-container mx-auto px-6 py-16">
+          <div className="max-w-2xl mb-8">
+            <div className="text-xs uppercase tracking-[0.2em] accent-orange font-extrabold mb-3">★ Equipment Buyer FAQ</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white mb-3">
+              Stafford Equipment <span className="accent-yellow">Questions, Answered.</span>
+            </h2>
+          </div>
+          <Faq items={[
+            {
+              q: "Where can I buy commercial DTF printers near Stafford, TX?",
+              a: "DTF Printer USA ships commercial DTF printers from 12-inch desktop to 24-inch industrial configurations directly to Stafford TX and the Houston metro. Installation support is available on most configurations, and the setup service covers calibration, RIP software, and initial print-testing.",
+            },
+            {
+              q: "What size DTF printer do I need for my Stafford shop?",
+              a: "Sizing depends on your projected production volume. The 12-inch desktop platform fits home-based operations and variable-schedule shops. The 16.5-inch all-in-one removes the manual-powdering step for first-time DTF buyers. The 24-inch with 4 or 5 Epson i3200 printheads is the production workhorse for mid-tier shops scaling daily volume.",
+            },
+            {
+              q: "Do you offer financing for commercial DTF equipment?",
+              a: "Contact the DTF Printer USA team via the contact page for current financing options on commercial configurations. Setup service availability and lead times vary by configuration.",
+            },
+            {
+              q: "What is the difference between hydraulic and clamshell heat presses?",
+              a: "Hydraulic presses deliver consistent pressure across the entire platen surface, which manual clamshells cannot match on larger formats. For full-back prints, hoodie pockets, and bulk-order sets, the hydraulic configuration is the right call. For small chest-print runs, a standard clamshell works.",
+            },
+            {
+              q: "Do you ship to Sugar Land and Missouri City?",
+              a: "Yes. DTF Printer USA ships commercial equipment to Stafford, Sugar Land, Missouri City, Pearland, Richmond, Rosenberg, Bellaire, Meadows Place, Sienna, Katy, and the broader Houston metro. Standard freight applies to most configurations.",
+            },
+          ]} />
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-accent-red text-white">
+        <div className="max-w-container mx-auto px-6 py-16 text-center">
+          <h2 className="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">
+            Build Your <span className="accent-yellow">Stafford DTF Shop</span> Today.
+          </h2>
+          <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed mb-7">
+            Commercial DTF printers. Hydraulic heat presses. UV DTF equipment. Embroidery
+            machines. Shipped from Texas with US-based installation support.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://dtfprinterusa.com/collections/dtf-printer"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-accent-red font-extrabold uppercase tracking-wider text-sm px-7 py-4 rounded hover:bg-white/90 transition no-underline"
+            >
+              Shop All Printers <span aria-hidden>→</span>
+            </a>
+            <Link
+              href="/dtf-supplies-near-stafford-tx"
+              className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-extrabold uppercase tracking-wider text-sm px-7 py-4 rounded transition no-underline"
+            >
+              See Stafford Supplies
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter />
     </>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-ink-800 border border-ink-700 rounded-lg p-3">
+      <div className="text-accent-yellow font-extrabold text-xl sm:text-2xl leading-none">{value}</div>
+      <div className="text-[10px] sm:text-xs text-white/55 uppercase tracking-wider mt-1.5 font-bold leading-tight">{label}</div>
+    </div>
   );
 }
