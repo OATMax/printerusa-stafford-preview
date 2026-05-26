@@ -1,34 +1,40 @@
 import type { Config } from "tailwindcss";
 
+// Brand palette reverse-engineered from dtfprinterusa.com (2026-05-26)
+// Primary navy #0A3161 (Old Glory blue), accent red #B31942, promo orange #FF8B21,
+// teal accent #108474, body text #232323
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: "#f0f6ff",
-          100: "#d9e8ff",
-          200: "#b3d1ff",
-          300: "#7ab2ff",
-          400: "#3d8df0",
-          500: "#1565d8",
-          600: "#0d4ab2",
-          700: "#093887",
-          800: "#082a66",
-          900: "#06204d",
+        navy: {
+          DEFAULT: "#0A3161",
+          900: "#06204D",
+          800: "#0A3161",
+          700: "#1248A1",
+          600: "#1D4077",
+          500: "#3E8CC4",
         },
-        ink: {
-          900: "#0c1322",
-          800: "#16213b",
-          700: "#1f2d4c",
-          600: "#2b3a5e",
-          500: "#43547a",
-          400: "#6c7e9f",
-          300: "#9caaca",
+        accent: {
+          red: "#B31942",
+          orange: "#FF8B21",
+          teal: "#108474",
+        },
+        body: "#232323",
+        surface: {
+          DEFAULT: "#ffffff",
+          alt: "#fafafa",
+          search: "#f1f1f1",
+          border: "#dadada",
+          muted: "#969696",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        sans: ["Poppins", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+      },
+      maxWidth: {
+        container: "1370px",
       },
     },
   },
